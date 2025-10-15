@@ -5,6 +5,7 @@ A web-based application built with Python and Flask that uses text mining techni
 # Table of Content
 
 - [Features](#features)
+- [Snapshots](#snapshots)
 - [Technology Stack](#technology-stack)
 - [How It Works](#how-it-works-)
 - [Setup and Installation](#setup-and-installation)
@@ -18,6 +19,16 @@ A web-based application built with Python and Flask that uses text mining techni
 **Clean & Responsive UI** : A modern and easy-to-use interface built with Tailwind CSS.
 
 **Extractive Summarization** : Implements a classic TF (Term Frequency) algorithm to identify and rank the most important sentences.
+
+# Snapshots
+
+Landing Page: 
+
+![Landing Page](https://github.com/YashovardhanGupta/Article-Summarizer/blob/main/snapshots/Landing_page.png?raw=true)
+
+Summary:
+
+![Summary](https://github.com/YashovardhanGupta/Article-Summarizer/blob/main/snapshots/Summary.png?raw=true)
 
 # Technology Stack
 
