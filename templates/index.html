@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Article Summarizer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100 flex items-center justify-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-xl shadow-lg max-w-3xl w-full my-8">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-slate-800">News Article Summarizer</h1>
+            <p class="text-slate-500 mt-2">Enter a URL or paste article text below.</p>
+        </div>
+
+        <form action="/summarize" method="post" class="space-y-6">
+            <div>
+                <label for="url_input" class="block text-sm font-medium text-slate-700">Article URL</label>
+                <input type="url" id="url_input" name="url_input" placeholder="https://example.com/news/article" class="mt-1 block w-full px-4 py-3 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500">
+            </div>
+            
+            <div class="relative">
+                <div class="absolute inset-0 flex items-center">
+                    <span class="w-full border-t"></span>
+                </div>
+                <div class="relative flex justify-center text-sm">
+                    <span class="bg-white px-2 text-slate-500 font-medium">OR</span>
+                </div>
+            </div>
+
+            <div>
+                <label for="text_input" class="block text-sm font-medium text-slate-700">Paste Text</label>
+                <textarea id="text_input" name="text_input" rows="10" placeholder="Paste the full text of the article here..." class="mt-1 block w-full px-4 py-3 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500"></textarea>
+            </div>
+            
+            <button type="submit" class="w-full bg-sky-600 text-white font-bold py-3 px-4 rounded-md hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 transition-colors duration-200">
+                Summarize
+            </button>
+        </form>
+
+        {% if error %}
+            <div class="mt-8 p-4 bg-red-100 border-l-4 border-red-500 text-red-800 rounded-md">
+                <h2 class="font-bold">Error</h2>
+                <p>{{ error }}</p>
+            </div>
+        {% endif %}
+
+        {% if summary %}
+            <div class="mt-8 p-5 bg-green-50 border-l-4 border-green-500 rounded-md">
+                <h2 class="text-xl font-bold text-slate-800 mb-2">Summary for: <span class="font-light italic text-slate-600 break-all">{{ original_input }}</span></h2>
+                <p class="text-slate-700 leading-relaxed">{{ summary }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
